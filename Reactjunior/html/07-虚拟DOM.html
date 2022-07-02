@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <title>虚拟DOM</title>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <button id="render">ReRender</button>
+
+    <script type="text/babel">
+
+        const root = ReactDOM.createRoot(document.querySelector('#root'));
+        const renderBtn = document.querySelector('#render');
+        const arr = ['孙悟空','猪八戒', '沙和尚'];
+        // renderBtn.addEventListener(onclick, () => {
+        //     root.render(arrul);
+        // });
+        renderBtn.onclick = function() {
+            const arrul = <ul>
+                { /*arr.map(x => <li key={x}>{x}</li>) */}
+                { arr.map((item, index) => <li key={index}>{item}</li>) }
+            </ul>;
+            root.render(arrul);
+        }
+        
+    </script>
+</body>
+</html>
