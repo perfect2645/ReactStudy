@@ -1,10 +1,15 @@
 import React from "react";
 
-const MyDate = () => {
+const MyDate = (props) => {
+  console.log(props.date);
+
+  // const month = props.date.getMonth() + 1;
+  const month = props.date.toLocaleString("zh-CN", { month: "long" });
+  const mydate = props.date.getDate();
   return (
     <div className="date">
-      <div className="month">七月</div>
-      <div className="day">05</div>
+      <div className="month">{month}</div>
+      <div className="day">{mydate}</div>
     </div>
   );
 };
