@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#root {
+    height: 800px;
+    overflow: hidden;
+}
+
+.logs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 800px;
+    height: 90%;
+    margin: 20px auto;
+    background-color: yellowgreen;
+    border-radius: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.date {
+    height: 80px;
+    width: 80px;
+    background-color: #fff;
+
+    font-weight: 700;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.month {
+    text-align: center;
+    line-height: 30px;
+    background-color: red;
+}
+
+.day {
+    text-align: center;
+    line-height: 50px;
+
+    font-size: 30px;
+}
+
+.content {
+    flex:auto;
+    text-align: center;
+    font-weight: 700;
+
+}
+
+.desc {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #194B49;
+}
+
+.time {
+    margin-top: 10px;
+    color: red;
+
+}
