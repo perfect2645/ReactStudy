@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    123
+    <script>
+
+        // 测试展开数组
+        var arr = [1,2,3];
+
+        const arr1 = [...arr];
+
+        arr = [3,2];
+        console.log(arr);
+        console.log(arr1);
+
+
+        var arrJson = [{field: "origin"}];
+
+        var arrJsonCopy = [...arrJson];
+
+        console.log(arrJson);
+        console.log(arrJsonCopy);
+
+        arrJson[0].field = "copied";
+        console.log(arrJson);
+        console.log(arrJsonCopy);
+
+
+        // 测试展开对象
+
+        const obj = {
+            name:"fawei",
+            age:18,
+            desc:"desc"
+        }
+
+
+        // const objCopy = [...obj];
+
+        /*
+        const {name:myname, age, desc} = obj;
+        // console.log(obj);
+        // console.log(`myname:${myname},myage:${age},mydesc:${desc},`);
+
+
+        
+        obj.age = 19;
+        obj.desc = "copy";
+
+        const {name:myname1, age:age1, desc:desc1} = obj;
+        console.log(obj);
+        console.log(`myname:${myname1},myage:${age1},mydesc:${desc1},`);
+        console.log(`myname:${myname},myage:${age},mydesc:${desc},`);
+        */
+
+    </script>
+</body>
+</html>
