@@ -5,9 +5,7 @@ import './App.css';
 const App = () => {
     return (
         <div className="app">
-            <Logs>
-                
-            </Logs>
+            <Logs />
         </div>
 
     );

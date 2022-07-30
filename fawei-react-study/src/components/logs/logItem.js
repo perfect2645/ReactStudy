@@ -1,4 +1,3 @@
-import React from 'react';
 import './LogItem.css';
 import Card from '../../UI/Card';
 import Calendar from '../calendar/Calendar';
@@ -8,7 +7,7 @@ const logItem = () => {
     return (
         <Card className="logItem">
             <Calendar />
-            <LogContent />
+            {/* <LogContent /> */}
         </Card>
     );
 };
