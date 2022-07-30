@@ -1,0 +1,19 @@
+.logs-form {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: papayawhip;
+}
+
+.logs-form article {
+    display: flex;
+    height: 30px;
+    line-height: 30px;
+}
+
+.logs-form article input {
+    flex: auto;
+    margin-left: 4px;
+    height: 26px;
+    outline: none;
+}
