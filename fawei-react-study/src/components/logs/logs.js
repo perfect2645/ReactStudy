@@ -4,18 +4,28 @@ import Card from '../../UI/Card';
 
 const Logs = () => {
 
+    const dayStamp = 24*60*60*1000;
+
     const logsData = [
         {
-            key:"001",
-            date:new Date(2022, 8, 29),
+            id:"001",
+            date:new Date(),
             content: {
                 desc:"学习React",
                 duration:"30分钟",
             }
+        },
+        {
+            id:"002",
+            date:new Date(Date.now() + dayStamp),
+            content: {
+                desc:"学习Angular",
+                duration:"50分钟",
+            }
         }
     ]
 
-    const items = logsData.map(data => <LogItem logsData={data}></LogItem>)
+    const items = logsData.map(data => <LogItem key={data.id} logsData={data}></LogItem>)
 
     return (
         <Card className='logs'>

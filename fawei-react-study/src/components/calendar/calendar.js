@@ -2,10 +2,14 @@ import React from 'react';
 import './Calendar.css';
 
 const Calendar = (props) => {
+    
+    const month = props.calendar.toLocaleString('zh-CN', {month:'long'});
+    const day = props.calendar.getDate();
+
     return (
         <div className='calendar'>
-            <div className='month'>四月</div>
-            <div className='day'>20</div>
+            <div className='month'>{month}</div>
+            <div className='day'>{day}</div>
         </div>
     );
 };
