@@ -1,0 +1,9 @@
+.logItem {
+    display: flex;
+    height: 80px;
+    background-color:orange;
+    width: 98%;
+    margin: 10px auto;
+    padding: 5px;
+    overflow: hidden;
+}
