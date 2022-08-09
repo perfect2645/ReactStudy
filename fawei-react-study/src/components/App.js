@@ -32,10 +32,19 @@ const App = () => {
     setLosData([newLog, ...logsData]);
   };
 
+  const onDeleteLog = (index) => {
+    setLosData((currentLogs) => {
+      const newLogs = [...currentLogs];
+      newLogs.splice(index, 1);
+
+      return newLogs;
+    });
+  };
+
   return (
     <div className="app">
       <LogsForm onAddLog={addLogHandler} />
-      <Logs logsData={logsData}></Logs>
+      <Logs logsData={logsData} onDeleteLog={onDeleteLog}></Logs>
     </div>
   );
 };
