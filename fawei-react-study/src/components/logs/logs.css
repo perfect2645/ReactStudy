@@ -3,3 +3,8 @@
     margin: 0 auto;
     padding: 10px;
 }
+.no-logs {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+}
