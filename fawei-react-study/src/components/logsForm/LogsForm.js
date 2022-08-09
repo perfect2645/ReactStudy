@@ -33,7 +33,9 @@ const LogsForm = () => {
           <input type="text" id="duration" onChange={durationChangedHandler} />
         </article>
         <article>
-          <button onCkick={addBtnClickHandler}>添加</button>
+          <button className="logFormBtn" onCkick={addBtnClickHandler}>
+            添加
+          </button>
         </article>
       </form>
     </Card>
