@@ -1,5 +1,5 @@
 import "./Logs.css";
-import Card from "../../UI/Card";
+import Card from "../../UI/Card/Card";
 import LogItem from "./LogItem";
 
 const Logs = (props) => {

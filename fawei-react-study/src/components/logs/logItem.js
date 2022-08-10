@@ -1,5 +1,5 @@
 import "./LogItem.css";
-import Card from "../../UI/Card";
+import Card from "../../UI/Card/Card";
 import Calendar from "../calendar/Calendar";
 import LogContent from "./LogContent";
 
