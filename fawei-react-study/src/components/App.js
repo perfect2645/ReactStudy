@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Logs from "./logs/Logs";
 import "./App.css";
 import LogsForm from "./logsForm/LogsForm";
-import ConfirmModal from "../UI/confirmModal/ConfirmModal";
 
 const App = () => {
   const dayStamp = 24 * 60 * 60 * 1000;
