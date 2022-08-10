@@ -1,0 +1,53 @@
+.ConfirmModal {
+
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    width: 400px;
+    height: 200px;
+    background-color: #fff;
+
+    padding: 10px;
+}
+
+.ConfirmModal article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 150px;
+
+    font-size: 22px;
+    color: red;
+}
+
+.confirmBtnArea {
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.confirmBtnArea button {
+    width: 80px;
+    margin: 0 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #eae287;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.confirmBtnArea .okButton {
+    background-color: red;
+}
+
+.confirmBtnArea .okButton:hover {
+    background-color: darksalmon;
+}
