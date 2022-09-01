@@ -1,0 +1,31 @@
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: #fcbf49;
+    border-radius: 50%;
+    height: 36rem;
+    width: 36rem;
+    line-height: 36rem;
+    border: none;
+    font-size: 24px;
+    padding: 0;
+}
+
+.sub {
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.add {
+
+}
+
+.countNum {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0 10px;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import Counter from "../../UI/counter/Counter";
 import classes from "./Meal.module.css";
 
 const Meal = () => {
@@ -14,7 +15,7 @@ const Meal = () => {
         </p>
         <div className={classes.priceBox}>
           <span className={classes.price}>12</span>
-          <div>数量</div>
+          <Counter amount={1} />
         </div>
       </div>
     </section>
