@@ -2,19 +2,12 @@ import React from "react";
 import Meal from "./meal/Meal";
 import classes from "./Meals.module.css";
 
-const Meals = () => {
+const Meals = (props) => {
 
-  const mealsData = [
-    
-  ]
-
-
+  
   return (
     <div>
-      <Meal></Meal>
-      <Meal></Meal>
-      <Meal></Meal>
-      <Meal></Meal>
+      {props.mealsData.map(item => <Meal key={item.id} meal={item} />)}
     </div>
   );
 };
