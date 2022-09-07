@@ -3,6 +3,12 @@ import Meal from "./meal/Meal";
 import classes from "./Meals.module.css";
 
 const Meals = () => {
+
+  const mealsData = [
+    
+  ]
+
+
   return (
     <div>
       <Meal></Meal>
