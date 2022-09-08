@@ -15,7 +15,7 @@ const Meal = (porps) => {
         </p>
         <div className={classes.priceBox}>
           <span className={classes.price}>{porps.meal.price}</span>
-          <Counter amount={porps.meal.amount} />
+          <Counter meal={porps.meal}/>
         </div>
       </div>
     </section>
