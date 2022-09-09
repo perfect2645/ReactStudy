@@ -98,10 +98,17 @@ const App = () => {
         setcartData(newCartData);
     }
 
+    const filterMealsHandler = (keyWord) => {
+        const filteredMealsData = MEALS_DATA.filter(
+            item => item.title.indexOf(keyWord) !== -1);
+        
+        setMealsData(filteredMealsData);
+    }
+
     return (
         <CartContext.Provider value={{...cartData, addItem, removeItem}} >
             <div>
-                <FilterMeals></FilterMeals>
+                <FilterMeals onFilter={filterMealsHandler}></FilterMeals>
                 <Meals mealsData={mealsData}>
                 </Meals>
             </div>
