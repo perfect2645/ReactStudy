@@ -1,0 +1,38 @@
+.FilterMeals {
+    position: fixed;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 120rem;
+    border-bottom: 1px solid #f2f2f2;
+
+}
+
+.searchText {
+    width: 650rem;
+    height: 70rem;
+    border:none;
+    border-radius: 40rem;
+    outline: none;
+    padding-left: 80rem;
+    background-color: #f2f2f2;
+}
+
+.inputOuter {
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 20rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    font-size: 20px;
+    color: #aaa;
+}

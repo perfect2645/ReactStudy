@@ -1,10 +1,11 @@
 import React from "react";
 import Meal from "./meal/Meal";
+import classes from "./Meals.module.css"
 
 const Meals = (props) => {
   
   return (
-    <div>
+    <div className={classes.meals}>
       {props.mealsData.map(item =>
         <Meal key={item.id} meal={item} />
       )}
