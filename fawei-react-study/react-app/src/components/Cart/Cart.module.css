@@ -44,8 +44,9 @@
 
 .price {
     display: flex;
-    align-items: center;
+    align-items:flex-end;
     position: relative;
+    height: 40rem;
     margin-left: 100rem;
     font-size: 30rem;
     font-weight: 700;
@@ -55,8 +56,6 @@
 .price::before {
     content: '￥';
     font-size: 20rem;
-    line-height: 12rem;
-    background-color: pink;
 }
 
 .settleBtn {
