@@ -19,7 +19,7 @@ img {
 
 .title {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 28rem;
     margin: 0;
 }
 
@@ -36,10 +36,10 @@ img {
 .price {
     padding-left: 10rem;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 36rem;
 }
 
 .price::before {
     content:'￥';
-    font-size: 12px;
+    font-size: 24rem;
 }
