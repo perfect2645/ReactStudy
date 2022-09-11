@@ -5,7 +5,7 @@ const backdropRoot = document.querySelector("#backdrop-root");
 
 const Backdrop = (props) => {
   return ReactDOM.createPortal(
-    <div classes={`${classes.Backdrop} ${props.className}`}>
+    <div className={`${classes.Backdrop} ${props.className}`}>
       {props.children}
     </div>,
     backdropRoot

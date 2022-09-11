@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import classes from "./Cart.module.css";
 import bagIcon from "../../asset/bag.png";
 import CartContext from "../../store/cart-context";
+import CartDetails from "./CartDetails";
 
 const Cart = () => {
   const ctx = useContext(CartContext);
@@ -10,6 +11,8 @@ const Cart = () => {
 
   return (
     <div className={classes.cartContainer}>
+      <CartDetails></CartDetails>
+
       <div className={classes.cartIcon}>
         <img src={bagIcon} alt="" className={classes.cartBox} />
         {hasSelection ? null : (
