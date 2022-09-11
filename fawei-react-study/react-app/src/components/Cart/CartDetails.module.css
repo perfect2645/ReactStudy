@@ -1,7 +1,22 @@
 .CartDetails{
+    position: absolute;
+    bottom: 0;
 
+    width: 100%;
+    padding-bottom: 140rem;
+    background-color: #fff;
+
+    border-top-left-radius: 60rem;
+    border-top-right-radius: 60rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 40rem;
 }
 
 .title{
-    
+
 }
