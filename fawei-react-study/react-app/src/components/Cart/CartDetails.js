@@ -9,7 +9,7 @@ const CartDetails = () => {
       <div className={classes.CartDetails}>
         <header className={classes.header}>
           <h3 className={classes.title}>餐品详情</h3>
-          <div>
+          <div className={classes.clear}>
             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
             <span>清空购物车</span>
           </div>

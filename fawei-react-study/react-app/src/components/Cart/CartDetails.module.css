@@ -6,17 +6,28 @@
     padding-bottom: 140rem;
     background-color: #fff;
 
-    border-top-left-radius: 60rem;
-    border-top-right-radius: 60rem;
+    border-top-left-radius: 40rem;
+    border-top-right-radius: 40rem;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
 
-    padding: 40rem;
+    padding: 30rem;
 }
 
 .title{
+    margin: 0;
+    font-size: 28rem;
+}
 
+.clear {
+    font-size: 24rem;
+    color: #888;
+    vertical-align: middle;
+}
+
+.clear span {
+    margin-left: 16rem;
 }
