@@ -1,10 +1,12 @@
 .CartDetails{
+    display: flex;
+    flex-direction: column;
     position: absolute;
     bottom: 0;
 
     width: 100%;
     max-height: 1200rem;
-    padding-bottom: 140rem;
+    padding-bottom: 120rem;
     background-color: #fff;
 
     border-top-left-radius: 40rem;

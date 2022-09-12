@@ -13,7 +13,6 @@ const Meal = (props) => {
       <div className={classes.content}>
         <h2 className={classes.title}>{props.meal.title}</h2>
         {props.isMenu ? desc : null}
-        <p className={classes.desc}>{props.meal.desc}</p>
         <div className={classes.priceBox}>
           <span className={classes.price}>{props.meal.price}</span>
           <Counter meal={props.meal} />
