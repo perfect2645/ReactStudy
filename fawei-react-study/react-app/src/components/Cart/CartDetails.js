@@ -20,7 +20,7 @@ const CartDetails = () => {
           </div>
         </header>
 
-        <div>
+        <div className={classes.orderList}>
           {ctx.items.map((meal) => (
             <Meal key={meal.id} meal={meal}></Meal>
           ))}
