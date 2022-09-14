@@ -83,8 +83,6 @@ const App = () => {
   const removeItem = (meal) => {
     const newCartData = { ...cartData };
 
-    console.log(newCartData.items.indexOf(meal));
-
     if (newCartData.items.indexOf(meal) === -1) {
       return;
     } else {

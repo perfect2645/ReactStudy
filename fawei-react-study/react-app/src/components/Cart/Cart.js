@@ -9,10 +9,9 @@ const Cart = () => {
 
   const [showDetails, setShowDetails] = useState(false);
 
-  const noSelection = ctx.totalAmount === 0;
-
   const toggleDetailsHandler = () => {
-    if (noSelection) {
+    console.log(ctx.totalAmount);
+    if (ctx.totalAmount === 0) {
       setShowDetails(false);
       return;
     }
@@ -27,11 +26,11 @@ const Cart = () => {
 
       <div className={classes.cartIcon}>
         <img src={bagIcon} alt="" className={classes.cartBox} />
-        {noSelection ? null : (
+        {ctx.totalAmount === 0 ? null : (
           <div className={classes.amount}>{ctx.totalAmount}</div>
         )}
       </div>
-      {noSelection ? (
+      {ctx.totalAmount === 0 ? (
         <h3 className={classes.noSelection}>未选购商品</h3>
       ) : (
         <h3 className={classes.price}>{ctx.totalPrice}</h3>
@@ -39,7 +38,7 @@ const Cart = () => {
 
       <button
         className={`${classes.settleBtn} ${
-          noSelection ? classes.disabled : ""
+          ctx.totalAmount === 0 ? classes.disabled : ""
         }`}
       >
         去结算

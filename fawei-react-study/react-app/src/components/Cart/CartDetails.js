@@ -17,6 +17,9 @@ const CartDetails = () => {
   };
 
   const cancelHandler = (e) => {
+    if (!showConfirm) {
+      return;
+    }
     e.stopPropagation();
 
     setShowConfirm(false);
@@ -27,7 +30,7 @@ const CartDetails = () => {
   };
 
   return (
-    <Backdrop>
+    <Backdrop onClick={cancelHandler}>
       {showConfirm && (
         <Confirm
           confirmMsg={"确认清空购物车吗"}
