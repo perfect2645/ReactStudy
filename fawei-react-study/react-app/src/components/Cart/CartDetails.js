@@ -22,7 +22,9 @@ const CartDetails = () => {
     setShowConfirm(false);
   };
 
-  const okHandler = () => {};
+  const okHandler = () => {
+    ctx.clearItems();
+  };
 
   return (
     <Backdrop>

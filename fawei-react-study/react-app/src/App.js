@@ -83,6 +83,8 @@ const App = () => {
   const removeItem = (meal) => {
     const newCartData = { ...cartData };
 
+    console.log(newCartData.items.indexOf(meal));
+
     if (newCartData.items.indexOf(meal) === -1) {
       return;
     } else {
@@ -99,6 +101,16 @@ const App = () => {
     setcartData(newCartData);
   };
 
+  const clearItems = () => {
+    const newCartData = { ...cartData };
+    newCartData.items.forEach((item) => delete item.amount);
+    newCartData.items = [];
+    newCartData.totalAmount = 0;
+    newCartData.totalPrice = 0;
+
+    setcartData(newCartData);
+  };
+
   const filterMealsHandler = (keyWord) => {
     const filteredMealsData = MEALS_DATA.filter(
       (item) => item.title.indexOf(keyWord) !== -1
@@ -108,7 +120,9 @@ const App = () => {
   };
 
   return (
-    <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+    <CartContext.Provider
+      value={{ ...cartData, addItem, removeItem, clearItems }}
+    >
       <div>
         <FilterMeals onFilter={filterMealsHandler}></FilterMeals>
         <Meals mealsData={mealsData}></Meals>
