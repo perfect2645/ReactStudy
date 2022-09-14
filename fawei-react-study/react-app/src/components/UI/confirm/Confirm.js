@@ -3,7 +3,7 @@ import Backdrop from "../backdrop/Backdrop";
 
 const Confirm = (props) => {
   return (
-    <Backdrop>
+    <Backdrop className={classes.confirmBackdrop}>
       <div className={classes.confirmContainer}>
         <p className={classes.confirmMsg}>{props.confirmMsg}</p>
         <div>

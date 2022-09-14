@@ -1,3 +1,7 @@
+.confirmBackdrop{
+    z-index: 40;
+}
+
 .confirmContainer{
     display: flex;
     flex-direction: column;
@@ -10,13 +14,13 @@
     bottom: 0;
     left: 0;
     margin: auto;
+    z-index: 41;
 
     width: 700rem;
     height: 300rem;
     background-color: #fff;
 
     border-radius: 40rem;
-    z-index: 40;
 }
 
 .confirmMsg{
