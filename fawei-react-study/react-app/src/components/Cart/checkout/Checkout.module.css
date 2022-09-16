@@ -1,0 +1,87 @@
+.checkout{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+
+    background-color: #eee;
+
+    padding: 20rem;
+    margin: 0;
+}
+
+.close {
+    color: #000;
+    font-size: 30rem;
+}
+
+.checkoutContainer {
+    background-color: #fff;
+    border-radius: 20rem;
+    padding: 0 30rem;
+}
+
+.checkoutHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 80rem;
+
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.checkoutContent {
+
+}
+
+.checkoutFooter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: relative;
+
+    height: 120rem;
+    border: 1px dashed #f2f2f2;
+
+    font-size: 30rem;
+    font-weight: 700;
+}
+
+.checkoutFooter::before,
+.checkoutFooter::after {
+    content: '';
+    position: absolute;
+    top: -10rem;
+
+
+    width: 20rem;
+    height: 20rem;
+    background-color: #eee;
+    border-radius: 50%;
+
+}
+.checkoutFooter::before{
+    left: -30rem;
+    transform: translateX(-50%);
+
+}
+.checkoutFooter::after {
+    right: -30rem;
+    transform: translateX(50%);
+}
+
+
+.title{
+    margin: 0;
+    font-size: 28rem;
+}
+
+.totalPrice::before{
+    content: '合计￥';
+    font-weight: 400;
+    font-size: 18rem;
+}
