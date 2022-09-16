@@ -3,7 +3,7 @@ import classes from "./Cart.module.css";
 import bagIcon from "../../asset/bag.png";
 import CartContext from "../../store/cart-context";
 import CartDetails from "./CartDetails";
-import Checkout from "./Checkout";
+import Checkout from "./checkout/Checkout";
 
 const Cart = () => {
   const ctx = useContext(CartContext);
