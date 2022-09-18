@@ -30,7 +30,7 @@ const CartDetails = () => {
   };
 
   return (
-    <Backdrop onClick={cancelHandler}>
+    <Backdrop>
       {showConfirm && (
         <Confirm
           confirmMsg={"确认清空购物车吗"}
