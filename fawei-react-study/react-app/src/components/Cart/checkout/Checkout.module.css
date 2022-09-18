@@ -34,7 +34,8 @@
 }
 
 .checkoutContent {
-
+    height: 900rem;
+    overflow: auto;
 }
 
 .checkoutFooter {

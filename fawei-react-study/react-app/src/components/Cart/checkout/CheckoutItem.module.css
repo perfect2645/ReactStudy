@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+}
+
+.shortcut {
+    width: 140rem;
+}
+
+.shortcut img {
+    width: 100%;
+}
+
+.desc {
+    flex: auto;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+
+    margin-left: 20rem;
+    padding: 20rem;
+}
+
+.title {
+    margin: 0;
+    font-size: 24rem;
+}
+
+.amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 26rem;
+    font-weight: 700;
+}
+
+.price::before {
+    content:'￥';
+    font-weight: 400;
+    font-size: 24rem;
+}
