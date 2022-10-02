@@ -17,7 +17,7 @@ const Cart = () => {
       setShowDetails(false);
       setShowCheckout(false);
     }
-  });
+  }, [ctx, setShowDetails, setShowCheckout]);
 
   const toggleDetailsHandler = () => {
     if (ctx.totalAmount === 0) {
