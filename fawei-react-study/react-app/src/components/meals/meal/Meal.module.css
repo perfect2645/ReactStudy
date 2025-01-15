@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.shotcut{
+.shotcut {
     flex: 4;
 }
 
@@ -31,7 +31,7 @@ img {
 .priceBox {
     display: flex;
     justify-content: space-between;
-    margin-top:40rem;
+    margin-top: 40rem;
 }
 
 .price {
@@ -41,6 +41,6 @@ img {
 }
 
 .price::before {
-    content:'￥';
+    content: '￥';
     font-size: 24rem;
 }
