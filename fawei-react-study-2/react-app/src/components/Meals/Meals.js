@@ -3,10 +3,10 @@ import Meal from './Meal/Meal';
 
 const Meals = () => {
     return (
-        <div>
-        <Meal>
-        </Meal>
-        </div>
+        <>
+            <Meal>
+            </Meal>
+        </>
     );
 };
 

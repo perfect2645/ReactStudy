@@ -1,0 +1,27 @@
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.btnCount {
+    width: 40rem;
+    height: 40rem;
+    line-height: 40rem;
+
+    font-size: 20rem;
+
+    border: none;
+    border-radius: 50%;
+}
+
+
+.btnMinus {}
+
+.btnAdd {
+    background-color: #FCBF49;
+}
+
+.count {
+    padding: 0 16rem;
+    font-size: 28rem;
+}
