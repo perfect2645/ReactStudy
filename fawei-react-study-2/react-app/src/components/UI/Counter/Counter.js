@@ -8,18 +8,16 @@ const Counter = (props) => {
   const cartContext = React.useContext(CartContext);
 
   const addHandler = () => {
-    console.log("Adding item to cart:", props.meal);
-
     cartContext.addItem(props.meal);
   };
 
   const removeHandler = () => {
-    cartContext.removeItem(props.id);
+    cartContext.removeItem(props.meal.id);
   };
 
   return (
     <div className={classes.counter}>
-      {props.meal.amount ? (
+      {props.meal.amount && props.meal.amount > 0 ? (
         <>
           <button
             className={`${classes.btnCount} ${classes.btnMinus}`}

@@ -69,14 +69,8 @@ const App = () => {
       if (existingItem) {
         existingItem.amount += 1;
       } else {
-        const newItem = {
-          id: meal.id,
-          title: meal.title,
-          price: meal.price,
-          amount: 1,
-        };
-
-        cartCopy.items.push(newItem);
+        meal.amount = 1;
+        cartCopy.items.push(meal);
       }
       cartCopy.totalAmount += 1;
       cartCopy.totalPrice += meal.price;
@@ -89,15 +83,16 @@ const App = () => {
   const removeItem = (id) => {
     setCartData((prevData) => {
       const cartCopy = { ...prevData };
+
       const existingItem = cartCopy.items.find((item) => item.id === id);
       if (!existingItem) {
         console.warn("Item not found in cart");
         return;
       }
-      if (existingItem.amount > 1) {
-        existingItem.amount -= 1;
-      } else {
-        cartCopy.items = cartCopy.items.filter((item) => item.id !== id);
+
+      existingItem.amount -= 1;
+      if (existingItem.amount === 0) {
+        cartCopy.items.splice(cartCopy.items.indexOf(existingItem), 1);
       }
       cartCopy.totalAmount -= 1;
       cartCopy.totalPrice -= existingItem.price;
