@@ -5,7 +5,7 @@ const Meals = (props) => {
   return (
     <>
       {props.meals.map((meal) => {
-        return <Meal meal={meal}></Meal>;
+        return <Meal key={meal.id} meal={meal}></Meal>;
       })}
     </>
   );

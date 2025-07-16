@@ -8,7 +8,9 @@ const Counter = (props) => {
   const cartContext = React.useContext(CartContext);
 
   const addHandler = () => {
-    cartContext.addItem();
+    console.log("Adding item to cart:", props.meal);
+
+    cartContext.addItem(props.meal);
   };
 
   const removeHandler = () => {
@@ -17,7 +19,7 @@ const Counter = (props) => {
 
   return (
     <div className={classes.counter}>
-      {props.amount ? (
+      {props.meal.amount ? (
         <>
           <button
             className={`${classes.btnCount} ${classes.btnMinus}`}
@@ -25,7 +27,7 @@ const Counter = (props) => {
           >
             <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
           </button>
-          <span className={classes.count}>{props.amount}</span>
+          <span className={classes.count}>{props.meal.amount}</span>
         </>
       ) : null}
 

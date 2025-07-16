@@ -13,7 +13,7 @@ const Meal = (props) => {
         <div className={classes.priceBox}>
           <span className={classes.price}>{props.meal.price}</span>
           <div>数量</div>
-          <Counter amount={props.meal.amount}></Counter>
+          <Counter meal={props.meal}></Counter>
         </div>
       </div>
     </div>
