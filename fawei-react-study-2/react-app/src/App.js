@@ -1,5 +1,6 @@
 import React from "react";
 import Meals from "./components/Meals/Meals";
+import FilterMeals from "./components/filter/FilterMeals";
 import CartContext from "./store/CartContext";
 
 const MEALS_DATA = [
@@ -101,9 +102,12 @@ const App = () => {
   };
 
   return (
-    <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
-      <Meals meals={meals}></Meals>
-    </CartContext.Provider>
+    <>
+      <FilterMeals />
+      <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+        <Meals meals={meals}></Meals>
+      </CartContext.Provider>
+    </>
   );
 };
 
