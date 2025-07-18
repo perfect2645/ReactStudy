@@ -101,9 +101,20 @@ const App = () => {
     });
   };
 
+  const onFilter = (keyword) => {
+    if (!keyword) {
+      setMeals(MEALS_DATA);
+      return;
+    }
+    const filteredMeals = MEALS_DATA.filter((meal) =>
+      meal.title.includes(keyword)
+    );
+    setMeals(filteredMeals);
+  };
+
   return (
     <>
-      <FilterMeals />
+      <FilterMeals onFilter={onFilter} />
       <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
         <Meals meals={meals}></Meals>
       </CartContext.Provider>
