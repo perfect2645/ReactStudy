@@ -7,16 +7,28 @@ const Cart = () => {
   const cartContext = useContext(CartContext);
 
   const isEmptyCart = cartContext.totalAmount === 0;
+  const amountHtml = isEmptyCart ? null : (
+    <span className={calsses.totalAmount}>{cartContext.totalAmount}</span>
+  );
+
+  const priceHtml = isEmptyCart ? (
+    <p className={calsses.noSelection}>未选择商品</p>
+  ) : (
+    <div className={calsses.pricing}>{cartContext.totalPrice}</div>
+  );
+
+  const checkoutClass = isEmptyCart
+    ? `${calsses.checkout} ${calsses.disabled}`
+    : `${calsses.checkout}`;
 
   return (
     <div className={calsses.cart}>
       <div className={calsses.imgBox}>
         <img src={bagIcon} alt="购物车" />
-
-        <span className={calsses.totalAmount}>{cartContext.totalAmount}</span>
+        {amountHtml}
       </div>
-      <div className={calsses.pricing}>{cartContext.totalPrice}</div>
-      <button className={calsses.checkout}>去结算</button>
+      {priceHtml}
+      <button className={checkoutClass}>去结算</button>
     </div>
   );
 };
