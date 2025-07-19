@@ -24,7 +24,7 @@ const CartDetails = () => {
         </header>
         <article className={classes.orderList}>
           {cartContext.items.map((meal) => {
-            return <Meal key={meal.id} meal={meal}></Meal>;
+            return <Meal key={meal.id} meal={meal} hideDesc={true}></Meal>;
           })}
         </article>
       </div>

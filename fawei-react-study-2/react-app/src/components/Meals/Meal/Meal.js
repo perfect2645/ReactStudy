@@ -9,7 +9,9 @@ const Meal = (props) => {
       </div>
       <div className={classes.content}>
         <h2 className={classes.title}>{props.meal.title}</h2>
-        <p className={classes.desc}>{props.meal.desc}</p>
+        {props.hideDesc ? null : (
+          <p className={classes.desc}>{props.meal.desc}</p>
+        )}
         <div className={classes.priceBox}>
           <span className={classes.price}>{props.meal.price}</span>
           <div>数量</div>
