@@ -11,7 +11,7 @@ const CartDetails = () => {
 
   return (
     <Backdrop>
-      <div className={classes.cartDetails}>
+      <div className={classes.cartDetails} onClick={(e) => e.stopPropagation()}>
         <header className={classes.title}>
           <h3>购物车详情</h3>
           <section className={classes.clear}>

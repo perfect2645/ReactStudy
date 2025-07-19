@@ -76,7 +76,6 @@ const App = () => {
       }
       cartCopy.totalAmount += 1;
       cartCopy.totalPrice += meal.price;
-      console.log(cartCopy);
 
       return cartCopy;
     });

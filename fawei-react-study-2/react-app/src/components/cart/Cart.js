@@ -1,7 +1,7 @@
 import calsses from "./Cart.module.css";
 import bagIcon from "../../assets/bag.png";
 import CartContext from "../../store/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import CartDetails from "./CartDetails";
 
@@ -25,8 +25,16 @@ const Cart = () => {
 
   const [showCartDetails, setShowCartDetails] = useState(false);
 
+  useEffect(() => {
+    if (cartContext.totalAmount === 0) {
+      setShowCartDetails(false);
+    }
+  }, [cartContext.totalAmount]);
+
   const cartBodyClickHandler = (e) => {
-    e.stopPropgation = true;
+    if (cartContext.totalAmount === 0) {
+      return;
+    }
 
     setShowCartDetails((prevState) => {
       return !prevState;
