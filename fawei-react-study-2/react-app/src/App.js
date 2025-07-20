@@ -101,6 +101,19 @@ const App = () => {
     });
   };
 
+  const clearCart = () => {
+    const cartCopy = { ...cartData };
+    cartCopy.items.forEach((element) => {
+      element.amount = 0;
+    });
+
+    setCartData({
+      items: [],
+      totalAmount: 0,
+      totalPrice: 0,
+    });
+  };
+
   const onFilter = (keyword) => {
     if (!keyword) {
       setMeals(MEALS_DATA);
@@ -115,7 +128,9 @@ const App = () => {
   return (
     <>
       <FilterMeals onFilter={onFilter} />
-      <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+      <CartContext.Provider
+        value={{ ...cartData, addItem, removeItem, clearCart }}
+      >
         <Meals meals={meals}></Meals>
         <Cart></Cart>
       </CartContext.Provider>
