@@ -4,6 +4,7 @@ import CartContext from "../../store/CartContext";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 import CartDetails from "./CartDetails";
+import Checkout from "./checkout/Checkout";
 
 const Cart = () => {
   const cartContext = useContext(CartContext);
@@ -24,6 +25,7 @@ const Cart = () => {
     : `${calsses.checkout}`;
 
   const [showCartDetails, setShowCartDetails] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
 
   useEffect(() => {
     if (cartContext.totalAmount === 0) {
@@ -41,6 +43,20 @@ const Cart = () => {
     });
   };
 
+  const checkOutHandler = () => {
+    if (cartContext.totalAmount === 0) {
+      return;
+    }
+
+    setShowCheckout((prevState) => {
+      return !prevState;
+    });
+  };
+
+  const closeCheckoutHandler = () => {
+    setShowCheckout(false);
+  };
+
   return (
     <div
       className={calsses.cart}
@@ -48,13 +64,18 @@ const Cart = () => {
         cartBodyClickHandler(e);
       }}
     >
+      {showCheckout ? (
+        <Checkout onCloseCheckout={closeCheckoutHandler}></Checkout>
+      ) : null}
       {showCartDetails ? <CartDetails></CartDetails> : null}
       <div className={calsses.imgBox}>
         <img src={bagIcon} alt="购物车" />
         {amountHtml}
       </div>
       {priceHtml}
-      <button className={checkoutClass}>去结算</button>
+      <button className={checkoutClass} onClick={checkOutHandler}>
+        去结算
+      </button>
     </div>
   );
 };
