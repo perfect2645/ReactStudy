@@ -1,0 +1,42 @@
+.checkoutItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10rem;
+}
+
+.shortCut {
+    width: 180rem;
+    height: 180rem;
+}
+
+.shortCut img {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 30rem 20rem;
+}
+
+.content h2 {
+    font-size: 28rem;
+}
+
+.amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pricing {
+    font-size: 28rem;
+    font-weight: 700;
+}
+
+.pricing::before {
+    content:"￥"
+}

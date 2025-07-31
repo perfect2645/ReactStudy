@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import CartContext from "../../../store/CartContext";
-import Meal from "../../Meals/Meal/Meal";
+import CheckoutItem from "./CheckoutItem";
 
 const checkoutRoot = document.getElementById("checkout-root");
 
@@ -25,7 +25,13 @@ const Checkout = (props) => {
         </header>
         <div>
           {cartContext.items.map((item) => {
-            return <Meal key={item.id} meal={item} hideDesc={true}></Meal>;
+            return (
+              <CheckoutItem
+                key={item.id}
+                meal={item}
+                hideDesc={true}
+              ></CheckoutItem>
+            );
           })}
         </div>
         <footer className={classes.footer}>
