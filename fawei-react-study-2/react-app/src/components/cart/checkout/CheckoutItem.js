@@ -10,7 +10,7 @@ const CheckoutItem = (props) => {
       <article className={classes.content}>
         <h2>{props.meal.title}</h2>
         <div className={classes.amount}>
-          <Counter meal={props.meal}></Counter>
+          <Counter meal={props.meal} disabled={true}></Counter>
           <div className={classes.pricing}>
             <span>{props.meal.amount * props.meal.price}</span>
           </div>

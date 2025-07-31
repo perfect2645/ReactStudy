@@ -20,6 +20,7 @@ const Counter = (props) => {
       {props.meal.amount && props.meal.amount > 0 ? (
         <>
           <button
+            disabled={props.disabled}
             className={`${classes.btnCount} ${classes.btnMinus}`}
             onClick={removeHandler}
           >
@@ -30,6 +31,7 @@ const Counter = (props) => {
       ) : null}
 
       <button
+        disabled={props.disabled}
         className={`${classes.btnCount} ${classes.btnAdd}`}
         onClick={addHandler}
       >

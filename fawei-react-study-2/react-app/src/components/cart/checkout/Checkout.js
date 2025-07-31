@@ -16,14 +16,14 @@ const Checkout = (props) => {
       <section className={classes.close}>
         <FontAwesomeIcon
           icon={faXmark}
-          onClick={() => props.closeCheckoutHandler()}
+          onClick={() => props.onCloseCheckout()}
         ></FontAwesomeIcon>
       </section>
       <article className={classes.content}>
         <header>
           <h1>餐品详情</h1>
         </header>
-        <div>
+        <div className={classes.meals}>
           {cartContext.items.map((item) => {
             return (
               <CheckoutItem
