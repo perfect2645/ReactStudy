@@ -65,40 +65,39 @@ const App = () => {
   });
 
   const addItem = (meal) => {
-    setCartData((prevData) => {
-      const cartCopy = { ...prevData };
-      const existingItem = cartCopy.items.find((item) => item.id === meal.id);
-      if (existingItem) {
-        existingItem.amount += 1;
-      } else {
-        meal.amount = 1;
-        cartCopy.items.push(meal);
-      }
-      cartCopy.totalAmount += 1;
-      cartCopy.totalPrice += meal.price;
+    const cartCopy = { ...cartData };
+    const existingItem = cartCopy.items.find((item) => item.id === meal.id);
 
-      return cartCopy;
-    });
+    if (existingItem) {
+      existingItem.amount += 1;
+    } else {
+      meal.amount = 1;
+      cartCopy.items.push(meal);
+    }
+
+    cartCopy.totalAmount += 1;
+    cartCopy.totalPrice += meal.price;
+
+    setCartData(cartCopy);
   };
 
   const removeItem = (id) => {
-    setCartData((prevData) => {
-      const cartCopy = { ...prevData };
+    const cartCopy = { ...cartData };
+    const existingItem = cartCopy.items.find((item) => item.id === id);
 
-      const existingItem = cartCopy.items.find((item) => item.id === id);
-      if (!existingItem) {
-        console.warn("Item not found in cart");
-        return;
-      }
+    if (!existingItem) {
+      return;
+    }
 
-      existingItem.amount -= 1;
-      if (existingItem.amount === 0) {
-        cartCopy.items.splice(cartCopy.items.indexOf(existingItem), 1);
-      }
-      cartCopy.totalAmount -= 1;
-      cartCopy.totalPrice -= existingItem.price;
-      return cartCopy;
-    });
+    existingItem.amount -= 1;
+    if (existingItem.amount === 0) {
+      cartCopy.items.splice(cartCopy.items.indexOf(existingItem), 1);
+    }
+
+    cartCopy.totalAmount -= 1;
+    cartCopy.totalPrice -= existingItem.price;
+
+    setCartData(cartCopy);
   };
 
   const clearCart = () => {
