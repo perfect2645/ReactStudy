@@ -8,11 +8,11 @@ const Counter = (props) => {
   const cartContext = React.useContext(CartContext);
 
   const addHandler = () => {
-    cartContext.addItem(props.meal);
+    cartContext.cartDispatch({ type: "Add", meal: props.meal });
   };
 
   const removeHandler = () => {
-    cartContext.removeItem(props.meal.id);
+    cartContext.cartDispatch({ type: "Remove", meal: props.meal });
   };
 
   return (

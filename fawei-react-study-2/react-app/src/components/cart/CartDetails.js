@@ -1,6 +1,6 @@
 import Backdrop from "../UI/backdrop/Backdrop";
 import classes from "./CartDetails.module.css";
-import { useContext } from "react";
+import { act, useContext } from "react";
 import CartContext from "../../store/CartContext";
 import Meal from "../Meals/Meal/Meal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +22,7 @@ const CartDetails = () => {
   };
 
   const okHandler = () => {
-    cartContext.clearCart();
+    cartContext.cartDispatch({ type: "Clear" });
     setShowConfirm(false);
   };
 

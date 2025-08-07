@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import Meals from "./components/Meals/Meals";
 import FilterMeals from "./components/filter/FilterMeals";
 import Cart from "./components/cart/Cart";
@@ -56,62 +56,76 @@ const MEALS_DATA = [
   },
 ];
 
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "Add":
+      return addItem(state, action.meal);
+    case "Remove":
+      return removeItem(state, action.meal);
+    case "Clear":
+      return clearCart(state);
+    default:
+      return state;
+  }
+};
+
+const addItem = (state, meal) => {
+  const cartCopy = { ...state };
+  const existingItem = cartCopy.items.find((item) => item.id === meal.id);
+
+  if (existingItem) {
+    existingItem.amount += 1;
+  } else {
+    meal.amount = 1;
+    cartCopy.items.push(meal);
+  }
+
+  cartCopy.totalAmount += 1;
+  cartCopy.totalPrice += meal.price;
+
+  return cartCopy;
+};
+
+const removeItem = (state, meal) => {
+  const cartCopy = { ...state };
+  const existingItem = cartCopy.items.find((item) => item.id === meal.id);
+
+  if (!existingItem) {
+    return;
+  }
+
+  existingItem.amount -= 1;
+  if (existingItem.amount === 0) {
+    cartCopy.items.splice(cartCopy.items.indexOf(existingItem), 1);
+  }
+
+  cartCopy.totalAmount -= 1;
+  cartCopy.totalPrice -= existingItem.price;
+
+  return cartCopy;
+};
+
+const clearCart = (state) => {
+  const cartCopy = { ...state };
+  cartCopy.items.forEach((element) => {
+    element.amount = 0;
+  });
+
+  return {
+    items: [],
+    totalAmount: 0,
+    totalPrice: 0,
+  };
+};
+
 const App = () => {
   const [meals, setMeals] = React.useState(MEALS_DATA);
-  const [cartData, setCartData] = React.useState({
+
+  const [cartData, cartDispatch] = useReducer(cartReducer, {
     items: [],
     totalAmount: 0,
     totalPrice: 0,
   });
-
-  const addItem = (meal) => {
-    const cartCopy = { ...cartData };
-    const existingItem = cartCopy.items.find((item) => item.id === meal.id);
-
-    if (existingItem) {
-      existingItem.amount += 1;
-    } else {
-      meal.amount = 1;
-      cartCopy.items.push(meal);
-    }
-
-    cartCopy.totalAmount += 1;
-    cartCopy.totalPrice += meal.price;
-
-    setCartData(cartCopy);
-  };
-
-  const removeItem = (id) => {
-    const cartCopy = { ...cartData };
-    const existingItem = cartCopy.items.find((item) => item.id === id);
-
-    if (!existingItem) {
-      return;
-    }
-
-    existingItem.amount -= 1;
-    if (existingItem.amount === 0) {
-      cartCopy.items.splice(cartCopy.items.indexOf(existingItem), 1);
-    }
-
-    cartCopy.totalAmount -= 1;
-    cartCopy.totalPrice -= existingItem.price;
-
-    setCartData(cartCopy);
-  };
-
-  const clearCart = () => {
-    const cartCopy = { ...cartData };
-    cartCopy.items.forEach((element) => {
-      element.amount = 0;
-    });
-
-    setCartData({
-      items: [],
-      totalAmount: 0,
-      totalPrice: 0,
-    });
-  };
 
   const onFilter = (keyword) => {
     if (!keyword) {
@@ -127,9 +141,7 @@ const App = () => {
   return (
     <>
       <FilterMeals onFilter={onFilter} />
-      <CartContext.Provider
-        value={{ ...cartData, addItem, removeItem, clearCart }}
-      >
+      <CartContext.Provider value={{ ...cartData, cartDispatch }}>
         <Meals meals={meals}></Meals>
         <Cart></Cart>
       </CartContext.Provider>
