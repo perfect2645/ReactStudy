@@ -1,0 +1,23 @@
+.studentTable {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  width: 40rem;
+
+  overflow: auto;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.studentTable tr td{
+    
+  border: 1px solid #ccc;
+}
+
+.studentTable caption {
+    margin: 20px 0;
+}

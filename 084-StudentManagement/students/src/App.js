@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import classes from "./App.module.css";
+import React from "react";
+import StudentList from "./components/student/StudentList";
+
+const StudentData = [
+  {
+    id: 1,
+    attributes: { name: "孙悟空", age: 20, gender: "男", address: "花果山" },
+  },
+  {
+    id: 2,
+    attributes: { name: "猪八戒", age: 22, gender: "男", address: "高老庄" },
+  },
+  {
+    id: 3,
+    attributes: { name: "周瑠夏", age: 18, gender: "女", address: "二次元" },
+  },
+];
 
 function App() {
+  const [studtents, setStudents] = React.useState(StudentData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.App}>
+      <StudentList students={studtents}></StudentList>
     </div>
   );
 }
