@@ -7,31 +7,36 @@ function App() {
 
   const [isLoading, setIsLoading] = React.useState(false);
 
+  const [error, setError] = React.useState(null);
+
   useEffect(() => {
-    setIsLoading(true);
-
-    fetch("https://localhost:7023/api/student/all")
-      .then((response) => {
-        if (response.ok) {
-          response.json().then((data) => {
-            console.log(data);
-            setStudents(data.data || []);
-
-            setIsLoading(false);
-          });
-        } else {
-          console.error("Failed to fetch students");
+    const fetchStudents = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        // Fetching students from the API
+        const response = await fetch("https://localhost:7023/api/student/all");
+        if (!response.ok) {
+          throw new Error(`${response.status} Failed to fetch students`);
         }
-      })
-      .catch((error) => {
+        const data = await response.json();
+        setStudents(data.data || []);
+      } catch (error) {
         console.error("Error fetching students:", error);
-      });
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchStudents();
   }, []);
 
   return (
     <div className={classes.App}>
       {isLoading && <p>Loading...</p>}
-      {!isLoading && <StudentList students={studtents}></StudentList>}
+      {!isLoading && !error && <StudentList students={studtents}></StudentList>}
+      {error && <p>Error: {error.message}</p>}
     </div>
   );
 }
