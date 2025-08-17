@@ -20,6 +20,7 @@ const StudentList = (props) => {
           <Student
             key={stu.id}
             student={{ id: stu.id, ...stu.attributes }}
+            studentsDispatch={props.studentsDispatch}
           ></Student>
         ))}
       </tbody>

@@ -1,37 +1,65 @@
 import classes from "./App.module.css";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useReducer } from "react";
 import StudentList from "./components/student/StudentList";
 
-function App() {
-  const [studtents, setStudents] = React.useState([]);
+const initialStudents = {
+  students: [],
+  isLoading: false,
+  error: null,
+};
 
-  const [isLoading, setIsLoading] = React.useState(false);
+const studentsReducer = (state, action) => {
+  console.log("Reducer action:", action);
 
-  const [error, setError] = React.useState(null);
+  switch (action.type) {
+    case "Fetch":
+      return { ...state, isLoading: true, error: null };
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        students: action.payload,
+        error: null,
+      };
+    case "ERROR":
+      return { ...state, isLoading: false, error: action.payload };
+    case "REMOVE_STUDENT":
+      return { ...state, isLoading: true, error: null };
+    case "UPDATE_STUDENT":
+      return {
+        ...state,
+        students: state.students.map((student) =>
+          student.id === action.payload.id ? action.payload : student
+        ),
+      };
+    default:
+      return state;
+  }
+};
 
-  const fetchStudents = useCallback(async () => {
-    try {
-      console.log("Fetching students...");
-      // Resetting state before fetching
-      setIsLoading(true);
-      setError(null);
-      // Fetching students from the API
-      const response = await fetch("https://localhost:7023/api/student/all");
-      if (!response.ok) {
-        throw new Error(`${response.status} Failed to fetch students`);
-      }
-      const data = await response.json();
-      setStudents(data.data || []);
-    } catch (error) {
-      console.error("Error fetching students:", error);
-      setError(error);
-    } finally {
-      setIsLoading(false);
+const fetchStudents = async (dispatch) => {
+  dispatch({ type: "Fetch" });
+
+  try {
+    const response = await fetch("https://localhost:7023/api/student/all");
+    if (!response.ok) {
+      throw new Error(`${response.status} Failed to fetch students`);
     }
-  }, []);
+    const data = await response.json();
+    dispatch({ type: "FETCH_SUCCESS", payload: data.data || [] });
+  } catch (error) {
+    dispatch({ type: "ERROR", payload: error });
+  }
+};
+
+function App() {
+  const [studentsState, studentsDispatch] = useReducer(
+    studentsReducer,
+    initialStudents
+  );
 
   useEffect(() => {
-    fetchStudents();
+    fetchStudents(studentsDispatch);
   }, []);
 
   return (
@@ -39,9 +67,14 @@ function App() {
       <button className={classes.refreshBtn} onClick={() => fetchStudents()}>
         Refresh
       </button>
-      {isLoading && <p>Loading...</p>}
-      {!isLoading && !error && <StudentList students={studtents}></StudentList>}
-      {error && <p>Error: {error.message}</p>}
+      {studentsState.isLoading && <p>Loading...</p>}
+      {!studentsState.isLoading && !studentsState.error && (
+        <StudentList
+          students={studentsState.students}
+          studentsDispatch={studentsDispatch}
+        ></StudentList>
+      )}
+      {studentsState.error && <p>Error: {studentsState.error.message}</p>}
     </div>
   );
 }
