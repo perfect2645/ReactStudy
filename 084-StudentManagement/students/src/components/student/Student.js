@@ -1,6 +1,10 @@
 import classes from "./Student.module.css";
+import { useContext } from "react";
+import StudentsContext from "../../store/StudentsContext";
 
 const Student = (props) => {
+  const studentsContext = useContext(StudentsContext);
+
   const { id, name, age, gender, address } = props.student;
 
   const deleteHandler = async () => {
@@ -13,10 +17,9 @@ const Student = (props) => {
         throw new Error(`${result.status} Failed to delete student`);
       }
 
-      // props.studentsDispatch({ type: "REMOVE_STUDENT", payload: id });
-      props.studentsDispatch({ type: "Fetch", payload: id });
+      studentsContext.studentsDispatch({ type: "Fetch", payload: id });
     } catch (error) {
-      props.studentsDispatch({ type: "ERROR", payload: id });
+      studentsContext.studentsDispatch({ type: "ERROR", payload: id });
     }
   };
 

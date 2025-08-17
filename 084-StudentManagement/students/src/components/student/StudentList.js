@@ -1,7 +1,13 @@
 import classes from "./StudentList.module.css";
 import Student from "./Student";
+import { useContext } from "react";
+import StudentsContext from "../../store/StudentsContext";
 
-const StudentList = (props) => {
+const StudentList = () => {
+  const studentsContext = useContext(StudentsContext);
+
+  console.log("StudentList context:", studentsContext);
+
   return (
     <table className={classes.studentTable}>
       <caption>Student List</caption>
@@ -16,11 +22,10 @@ const StudentList = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.students.map((stu) => (
+        {studentsContext.studentsState.students.map((stu) => (
           <Student
             key={stu.id}
             student={{ id: stu.id, ...stu.attributes }}
-            studentsDispatch={props.studentsDispatch}
           ></Student>
         ))}
       </tbody>

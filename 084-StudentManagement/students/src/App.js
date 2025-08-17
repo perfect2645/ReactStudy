@@ -1,6 +1,7 @@
 import classes from "./App.module.css";
 import React, { useCallback, useEffect, useReducer } from "react";
 import StudentList from "./components/student/StudentList";
+import StudentsContext from "./store/StudentsContext";
 
 const initialStudents = {
   students: [],
@@ -69,10 +70,9 @@ function App() {
       </button>
       {studentsState.isLoading && <p>Loading...</p>}
       {!studentsState.isLoading && !studentsState.error && (
-        <StudentList
-          students={studentsState.students}
-          studentsDispatch={studentsDispatch}
-        ></StudentList>
+        <StudentsContext.Provider value={{ studentsState, studentsDispatch }}>
+          <StudentList></StudentList>
+        </StudentsContext.Provider>
       )}
       {studentsState.error && <p>Error: {studentsState.error.message}</p>}
     </div>
