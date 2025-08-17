@@ -12,6 +12,7 @@ const StudentList = (props) => {
           <th>Age</th>
           <th>Grade</th>
           <th>Address</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>

@@ -1,15 +1,11 @@
 .studentTable {
-  position: fixed;
+  width: 400rem;
 
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-
-  width: 40rem;
+  font-size: 12rem;
+  text-align: center;
 
   overflow: auto;
-  margin: 0 auto;
+  margin: 0 auto ;
   border-collapse: collapse;
 }
 
@@ -19,5 +15,5 @@
 }
 
 .studentTable caption {
-    margin: 20px 0;
+    margin: 20rem 0;
 }

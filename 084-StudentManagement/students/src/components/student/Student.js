@@ -1,4 +1,4 @@
-import React from "react";
+import classes from "./Student.module.css";
 
 const Student = ({ student: { id, name, age, gender, address } }) => {
   return (
@@ -8,6 +8,10 @@ const Student = ({ student: { id, name, age, gender, address } }) => {
       <td>{age}</td>
       <td>{gender}</td>
       <td>{address}</td>
+      <td>
+        <button>Edit</button>
+        <button>Delete</button>
+      </td>
     </tr>
   );
 };

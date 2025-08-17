@@ -1,4 +1,6 @@
-.App {
-  text-align: center;
+.App .refreshBtn {
+  position: fixed;
+  top: 50rem;
+  left: 50rem;
 }
 
