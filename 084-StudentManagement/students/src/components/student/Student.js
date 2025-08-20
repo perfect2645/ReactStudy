@@ -1,16 +1,17 @@
 import classes from "./Student.module.css";
 import { useContext } from "react";
 import StudentsContext from "../../store/StudentsContext";
+import { useCallback } from "react";
 
 const Student = (props) => {
   const studentsContext = useContext(StudentsContext);
 
   const { id, name, age, gender, address } = props.student;
 
-  const deleteHandler = async () => {
+  const deleteStudent = useCallback(async () => {
     try {
       const result = await fetch(`https://localhost:7023/api/student/${id}`, {
-        method: "DELETE",
+        method: "Delete",
       });
 
       if (!result.ok) {
@@ -19,8 +20,12 @@ const Student = (props) => {
 
       studentsContext.studentsDispatch({ type: "Fetch", payload: id });
     } catch (error) {
-      studentsContext.studentsDispatch({ type: "ERROR", payload: id });
+      studentsContext.studentsDispatch({ type: "Error", payload: id });
     }
+  }, [id, studentsContext]);
+
+  const deleteHandler = async () => {
+    await deleteStudent();
   };
 
   return (

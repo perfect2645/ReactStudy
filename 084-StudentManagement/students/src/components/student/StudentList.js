@@ -2,11 +2,10 @@ import classes from "./StudentList.module.css";
 import Student from "./Student";
 import { useContext } from "react";
 import StudentsContext from "../../store/StudentsContext";
+import StudentForm from "./StudentForm";
 
 const StudentList = () => {
   const studentsContext = useContext(StudentsContext);
-
-  console.log("StudentList context:", studentsContext);
 
   return (
     <table className={classes.studentTable}>
@@ -16,7 +15,7 @@ const StudentList = () => {
           <th>ID</th>
           <th>Name</th>
           <th>Age</th>
-          <th>Grade</th>
+          <th>Gender</th>
           <th>Address</th>
           <th>Actions</th>
         </tr>
@@ -29,6 +28,9 @@ const StudentList = () => {
           ></Student>
         ))}
       </tbody>
+      <tfoot>
+        <StudentForm></StudentForm>
+      </tfoot>
     </table>
   );
 };

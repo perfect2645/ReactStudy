@@ -1,0 +1,19 @@
+.studentForm td input {
+    width: 50rem;
+}
+
+.studentForm td:first-child input {
+    width: 30rem;
+}
+
+.studentForm td:nth-child(3) input {
+    width: 30rem;
+}
+
+.studentForm td:nth-child(5) input {
+    width: 100rem;
+}
+
+.studentForm td:nth-child(6) input {
+    text-align: start;
+}

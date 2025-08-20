@@ -15,16 +15,18 @@ const studentsReducer = (state, action) => {
   switch (action.type) {
     case "Fetch":
       return { ...state, isLoading: true, error: null };
-    case "FETCH_SUCCESS":
+    case "Success":
       return {
         ...state,
         isLoading: false,
         students: action.payload,
         error: null,
       };
-    case "ERROR":
+    case "Error":
       return { ...state, isLoading: false, error: action.payload };
-    case "REMOVE_STUDENT":
+    case "Add":
+      return { ...state, isLoading: true, error: null };
+    case "Delete":
       return { ...state, isLoading: true, error: null };
     case "UPDATE_STUDENT":
       return {
@@ -47,9 +49,9 @@ const fetchStudents = async (dispatch) => {
       throw new Error(`${response.status} Failed to fetch students`);
     }
     const data = await response.json();
-    dispatch({ type: "FETCH_SUCCESS", payload: data.data || [] });
+    dispatch({ type: "Success", payload: data.data || [] });
   } catch (error) {
-    dispatch({ type: "ERROR", payload: error });
+    dispatch({ type: "Error", payload: error });
   }
 };
 
@@ -65,7 +67,10 @@ function App() {
 
   return (
     <div className={classes.App}>
-      <button className={classes.refreshBtn} onClick={() => fetchStudents()}>
+      <button
+        className={classes.refreshBtn}
+        onClick={() => fetchStudents(studentsDispatch)}
+      >
         Refresh
       </button>
       {studentsState.isLoading && <p>Loading...</p>}
