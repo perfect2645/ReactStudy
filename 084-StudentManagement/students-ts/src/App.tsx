@@ -2,38 +2,22 @@ import { useEffect, useState } from "react";
 import classes from "./App.module.css";
 import StudentsList from "./components/student/StudentList";
 import { useCallback } from "react";
-
-// 定义单个学生的接口
-interface StudentAttributes {
-  name: string;
-  gender: string;
-  age: number;
-  address: string;
-}
-
-interface Student {
-  id: number;
-  attributes: StudentAttributes;
-}
-
-// 如果接口返回的是数组
-type StudentResponse = Student[];
+import { StudentInfo, StudentResponse } from "./types/Students";
 
 function App() {
-  const [students, setStudents] = useState<Student[]>([]);
+  const [students, setStudents] = useState<StudentInfo[]>([]);
   const [error, setError] = useState(null);
 
   const fetchStudents = useCallback(async () => {
     setError(null);
     try {
-      const res: Response = await fetch(
-        "https://localhost:7023/api/student/all"
-      );
+      const res: any = await fetch("https://localhost:7023/api/student/all");
       if (!res.ok) {
         throw new Error("Failed to fetch students");
       }
       const data: StudentResponse = await res.json();
-      setStudents(data);
+
+      setStudents(data.data);
     } catch (error: any) {
       setError(error.message);
     }
@@ -45,7 +29,7 @@ function App() {
 
   return (
     <div className={classes.App}>
-      <StudentsList></StudentsList>
+      <StudentsList students={students}></StudentsList>
     </div>
   );
 }
