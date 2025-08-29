@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import StudentList from "./components/student/StudentList";
 import classes from "./App.module.css";
 
@@ -10,14 +10,17 @@ import type {
 
 const App = () => {
   const [students, setStudents] = useState<StudentInfo[]>([]);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<any>(null);
 
   useEffect(() => {
     fetchStudents();
   }, []);
 
-  const fetchStudents = async () => {
+  const fetchStudents = useCallback(async () => {
     try {
+      setLoading(true);
+
       const response = await fetch("https://localhost:7023/api/student/all");
 
       if (!response.ok) {
@@ -27,14 +30,17 @@ const App = () => {
 
       const data: StudentResponse = await response.json();
       setStudents(data.data);
-    } catch (error: any) {
-      setError(error);
+    } catch (err: any) {
+      setError(err);
+    } finally {
+      setLoading(false);
     }
-  };
+  }, []);
 
   return (
     <div className={classes.app}>
-      <StudentList students={students}></StudentList>
+      {loading && <header>Loading...</header>}
+      {!loading && <StudentList students={students}></StudentList>}
     </div>
   );
 };
