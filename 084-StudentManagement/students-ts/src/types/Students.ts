@@ -1,17 +1,17 @@
-export interface StudentAttributes {
-  name: string;
-  gender: string;
-  age: number;
-  address: string;
+export type StudentInfo = {
+    id : number,
+    attributes : StudentAttribute
 }
 
-export interface StudentInfo {
-  id: number;
-  attributes: StudentAttributes;
+export type StudentAttribute = {
+    name: string,
+    age: number,
+    gender: string,
+    address: string | null
 }
 
-export interface StudentResponse {
-  data: StudentInfo[];
-  success: boolean;
-  message: string | null;
+export type StudentResponse = {
+    data: StudentInfo[],
+    success: boolean,
+    message: string | null
 }

@@ -1,21 +1,25 @@
 import React from "react";
-import type { StudentInfo } from "../../types/Students";
+import { StudentInfo } from "../../types/Students";
+import classes from "./Student.module.css";
 
-interface StudentProps {
+type StudentProps = {
   student: StudentInfo;
-}
+};
 
 const Student: React.FC<StudentProps> = ({ student }) => {
-  const { name, age, gender, address } = student.attributes;
+  const studentData = { id: student.id, ...student.attributes };
 
   return (
     <tr>
-      <td>{student.id}</td>
-      <td>{name}</td>
-      <td>{age}</td>
-      <td>{gender}</td>
-      <td>{address}</td>
-      <td>Actions</td>
+      <td>{studentData.id}</td>
+      <td>{studentData.name}</td>
+      <td>{studentData.age}</td>
+      <td>{studentData.gender}</td>
+      <td>{studentData.address}</td>
+      <td className={classes.actionTd}>
+        <button>Edit</button>
+        <button>Delete</button>
+      </td>
     </tr>
   );
 };
