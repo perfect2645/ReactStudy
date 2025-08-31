@@ -15,3 +15,14 @@ export type StudentResponse = {
     success: boolean,
     message: string | null
 }
+
+export type StudentState = {
+  students: StudentInfo[];
+  loading: String;
+  error: any;
+};
+
+export type StudentAction =
+  | { type: "StartLoading" }
+  | { type: "Loaded"; payload: StudentInfo[] }
+  | { type: "Error"; payload: string };

@@ -1,28 +1,24 @@
-import React, { useCallback, useEffect, useReducer, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import StudentList from "./components/student/StudentList";
 import classes from "./App.module.css";
 
-import type { StudentInfo, StudentResponse } from "./types/Students";
+import type {
+  StudentResponse,
+  StudentAction,
+  StudentState,
+} from "./types/Students";
 
-type StudentState = {
-  studentData: StudentInfo[];
-  loading: boolean;
-  error: any;
-};
-
-type Action =
-  | { type: "StartLoading" }
-  | { type: "Loaded"; payload: StudentInfo[] }
-  | { type: "Error"; payload: string };
-
-const studentReducer = (state: StudentState, action: Action): StudentState => {
+const studentReducer = (
+  state: StudentState,
+  action: StudentAction
+): StudentState => {
   switch (action.type) {
     case "StartLoading":
-      return { ...state, loading: true, error: null };
+      return { ...state, loading: "Loading...", error: null };
     case "Loaded":
-      return { studentData: action.payload, loading: false, error: null };
+      return { students: action.payload, loading: "", error: null };
     case "Error":
-      return { ...state, error: action.payload, loading: false };
+      return { ...state, error: action.payload, loading: "" };
     default:
       return state;
   }
@@ -30,20 +26,16 @@ const studentReducer = (state: StudentState, action: Action): StudentState => {
 
 const App = () => {
   const [students, studentDispatch] = useReducer(studentReducer, {
-    studentData: [],
-    loading: false,
+    students: [],
+    loading: "",
     error: null,
   });
-
-  useEffect(() => {
-    fetchStudents();
-  }, []);
 
   const fetchStudents = useCallback(async () => {
     try {
       studentDispatch({ type: "StartLoading" });
 
-      const response = await fetch("https://localhost:7023/api/student/all1");
+      const response = await fetch("https://localhost:7023/api/student/all");
 
       if (!response.ok) {
         const errorMsg = `Failed to fetch students: ${response.status} ${response.statusText}`;
@@ -57,11 +49,18 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    fetchStudents();
+  }, [fetchStudents]);
+
   return (
     <div className={classes.app}>
-      {students.loading && <header>Loading...</header>}
+      <button className={classes.refreshBtn} onClick={() => fetchStudents()}>
+        Refresh
+      </button>
+      {students.loading && <header>{students.loading}</header>}
       {!students.loading && !students.error && (
-        <StudentList students={students.studentData}></StudentList>
+        <StudentList students={students.students}></StudentList>
       )}
       {students.error && <footer>{students.error.message}</footer>}
     </div>
