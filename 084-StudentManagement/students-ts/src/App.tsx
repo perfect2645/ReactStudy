@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useReducer } from "react";
 import StudentList from "./components/student/StudentList";
 import classes from "./App.module.css";
+import StudentsContext from "./store/StudentContext";
 
 import type {
   StudentResponse,
@@ -60,7 +61,9 @@ const App = () => {
       </button>
       {students.loading && <header>{students.loading}</header>}
       {!students.loading && !students.error && (
-        <StudentList students={students.students}></StudentList>
+        <StudentsContext.Provider value={{ studentDispatch, students }}>
+          <StudentList students={students.students}></StudentList>
+        </StudentsContext.Provider>
       )}
       {students.error && <footer>{students.error.message}</footer>}
     </div>

@@ -1,8 +1,14 @@
-import React from "react";
+import React, { Dispatch } from "react";
+import { StudentAction, StudentInfo } from "../types/Students";
 
-const StudentsContext = React.createContext({
-  studentsDispatch: () => {},
-  studentsState: { students: [], isLoading: false, error: null },
+interface StudentsContextType {
+  studentDispatch: Dispatch<StudentAction>;
+  students: { students: StudentInfo[]; loading: String; error: any };
+}
+
+const StudentsContext = React.createContext<StudentsContextType>({
+  studentDispatch: () => {},
+  students: { students: [], loading: "", error: null },
 });
 
 export default StudentsContext;
