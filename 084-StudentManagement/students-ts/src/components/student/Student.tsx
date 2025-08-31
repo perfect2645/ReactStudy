@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { StudentInfo } from "../../types/Students";
 import classes from "./Student.module.css";
 
@@ -9,6 +9,29 @@ type StudentProps = {
 const Student: React.FC<StudentProps> = ({ student }) => {
   const studentData = { id: student.id, ...student.attributes };
 
+  const deleteStudent = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `https://localhost:7023/api/student/${studentData.id}`,
+        {
+          method: "delete",
+        }
+      );
+
+      if (!response.ok) {
+        throw Error(
+          `Delete student failed.${response.status} ${response.statusText}`
+        );
+      }
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  }, []);
+
+  const deleteHandler = async () => {
+    deleteStudent();
+  };
+
   return (
     <tr>
       <td>{studentData.id}</td>
@@ -18,7 +41,7 @@ const Student: React.FC<StudentProps> = ({ student }) => {
       <td>{studentData.address}</td>
       <td className={classes.actionTd}>
         <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={deleteHandler}>Delete</button>
       </td>
     </tr>
   );

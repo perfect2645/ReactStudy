@@ -19,6 +19,7 @@ const App = () => {
 
   const fetchStudents = useCallback(async () => {
     try {
+      setError(null);
       setLoading(true);
 
       const response = await fetch("https://localhost:7023/api/student/all");
@@ -40,7 +41,8 @@ const App = () => {
   return (
     <div className={classes.app}>
       {loading && <header>Loading...</header>}
-      {!loading && <StudentList students={students}></StudentList>}
+      {!loading && !error && <StudentList students={students}></StudentList>}
+      {error && <footer>{error.message}</footer>}
     </div>
   );
 };
