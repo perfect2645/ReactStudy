@@ -3,11 +3,13 @@ import { StudentAction, StudentInfo } from "../types/Students";
 
 interface StudentsContextType {
   studentDispatch: Dispatch<StudentAction>;
+  fetchStudents: () => Promise<void>;
   students: { students: StudentInfo[]; loading: String; error: any };
 }
 
 const StudentsContext = React.createContext<StudentsContextType>({
-  studentDispatch: () => {},
+  studentDispatch: () => { },
+  fetchStudents: async () => {},
   students: { students: [], loading: "", error: null },
 });
 

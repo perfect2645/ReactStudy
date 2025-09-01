@@ -16,6 +16,8 @@ const studentReducer = (
   switch (action.type) {
     case "StartLoading":
       return { ...state, loading: "Loading...", error: null };
+    case "Deleting":
+      return { ...state, loading: `Deleting...${action.payload}`, error: null };
     case "Loaded":
       return { students: action.payload, loading: "", error: null };
     case "Error":
@@ -61,8 +63,10 @@ const App = () => {
       </button>
       {students.loading && <header>{students.loading}</header>}
       {!students.loading && !students.error && (
-        <StudentsContext.Provider value={{ studentDispatch, students }}>
-          <StudentList students={students.students}></StudentList>
+        <StudentsContext.Provider
+          value={{ studentDispatch, fetchStudents, students }}
+        >
+          <StudentList></StudentList>
         </StudentsContext.Provider>
       )}
       {students.error && <footer>{students.error.message}</footer>}

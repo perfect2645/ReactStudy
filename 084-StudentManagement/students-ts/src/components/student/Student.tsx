@@ -1,16 +1,24 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import { StudentInfo } from "../../types/Students";
 import classes from "./Student.module.css";
+import StudentsContext from "../../store/StudentContext";
 
 type StudentProps = {
   student: StudentInfo;
 };
 
 const Student: React.FC<StudentProps> = ({ student }) => {
+  const studentContext = useContext(StudentsContext);
+
   const studentData = { id: student.id, ...student.attributes };
 
   const deleteStudent = useCallback(async () => {
     try {
+      studentContext.studentDispatch({
+        type: "Deleting",
+        payload: studentData.name,
+      });
+
       const response = await fetch(
         `https://localhost:7023/api/student/${studentData.id}`,
         {
@@ -23,8 +31,10 @@ const Student: React.FC<StudentProps> = ({ student }) => {
           `Delete student failed.${response.status} ${response.statusText}`
         );
       }
+
+      studentContext.fetchStudents();
     } catch (error: any) {
-      console.log(error.message);
+      studentContext.studentDispatch({ type: "Error", payload: error });
     }
   }, []);
 

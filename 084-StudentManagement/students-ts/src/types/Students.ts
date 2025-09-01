@@ -24,5 +24,6 @@ export type StudentState = {
 
 export type StudentAction =
   | { type: "StartLoading" }
+  | { type: "Deleting"; payload: string }
   | { type: "Loaded"; payload: StudentInfo[] }
   | { type: "Error"; payload: string };

@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StudentInfo } from "../../types/Students";
 import Student from "./Student";
 import classes from "./StudentList.module.css";
+import StudentsContext from "../../store/StudentContext";
 
-type StudentListProps = {
-  students: StudentInfo[];
-};
+const StudentList = () => {
+  const studentsContext = useContext(StudentsContext);
 
-const StudentList: React.FC<StudentListProps> = ({ students }) => {
   return (
     <table className={classes.studentTable}>
       <caption>Student Table</caption>
@@ -22,7 +21,7 @@ const StudentList: React.FC<StudentListProps> = ({ students }) => {
         </tr>
       </thead>
       <tbody>
-        {students.map((s) => (
+        {studentsContext.students.students.map((s) => (
           <Student key={s.id} student={s}></Student>
         ))}
       </tbody>
