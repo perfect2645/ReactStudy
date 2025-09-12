@@ -107,7 +107,7 @@ describe("App", () => {
       // assert
       expect(screen.getByText("Loading...")).toBeInTheDocument();
       await waitFor(() => {
-        expect(screen.getByText("Student Table")).toBeInTheDocument();
+        expect(screen.getByText(/John Doe/i)).toBeInTheDocument();
       });
     });
   });
