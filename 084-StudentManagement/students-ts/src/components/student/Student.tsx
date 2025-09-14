@@ -41,13 +41,13 @@ const Student: React.FC<StudentProps> = ({ student }) => {
     }
   }, []);
 
-  const deleteHandler = useCallback(() => {
+  const deleteHandler = () => {
     deleteStudent();
-  }, []);
+  };
 
-  const editHandler = useCallback(() => {
+  const editHandler = () => {
     setIsEditing(true);
-  }, []);
+  };
 
   return isEditing ? (
     <StudentEditForm />
