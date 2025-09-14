@@ -104,7 +104,7 @@ const StudentForm = () => {
         ></input>
       </td>
       <td>
-        <button className={classes.addBtn} onClick={addStudentHandler}>
+        <button className={classes.btn} onClick={addStudentHandler}>
           添加
         </button>
       </td>

@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { StudentInfo } from "../../types/Students";
 import classes from "./Student.module.css";
 import StudentsContext from "../../store/StudentContext";
+import StudentEditForm from "./StudentEditForm";
 
 type StudentProps = {
   student: StudentInfo;
@@ -11,6 +12,8 @@ const Student: React.FC<StudentProps> = ({ student }) => {
   const studentContext = useContext(StudentsContext);
 
   const studentData = { id: student.id, ...student.attributes };
+
+  const [isEditing, setIsEditing] = React.useState<boolean>(false);
 
   const deleteStudent = useCallback(async () => {
     try {
@@ -38,11 +41,17 @@ const Student: React.FC<StudentProps> = ({ student }) => {
     }
   }, []);
 
-  const deleteHandler = async () => {
+  const deleteHandler = useCallback(() => {
     deleteStudent();
-  };
+  }, []);
 
-  return (
+  const editHandler = useCallback(() => {
+    setIsEditing(true);
+  }, []);
+
+  return isEditing ? (
+    <StudentEditForm />
+  ) : (
     <tr>
       <td>{studentData.id}</td>
       <td>{studentData.name}</td>
@@ -50,7 +59,7 @@ const Student: React.FC<StudentProps> = ({ student }) => {
       <td>{studentData.gender}</td>
       <td>{studentData.address}</td>
       <td className={classes.actionTd}>
-        <button>Edit</button>
+        <button onClick={editHandler}>Edit</button>
         <button onClick={deleteHandler}>Delete</button>
       </td>
     </tr>
