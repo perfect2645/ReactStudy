@@ -49,8 +49,15 @@ const Student: React.FC<StudentProps> = ({ student }) => {
     setIsEditing(true);
   };
 
+  const onCancel = () => {
+    setIsEditing(false);
+  };
+
   return isEditing ? (
-    <StudentEditForm />
+    <StudentEditForm
+      student={{ id: student.id, attributes: student.attributes }}
+      onCancel={onCancel}
+    />
   ) : (
     <tr>
       <td>{studentData.id}</td>
