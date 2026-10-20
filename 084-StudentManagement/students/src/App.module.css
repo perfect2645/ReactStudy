@@ -1,0 +1,12 @@
+.App .refreshBtn {
+  position: fixed;
+  top: 50rem;
+  left: 50rem;
+}
+
+.App p {
+  text-align: center;
+  width: 100%;
+  font-size: 24rem;
+}
+

@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Source Han Sans", "Heiti SC", "SimSun", sans-serif;
+}

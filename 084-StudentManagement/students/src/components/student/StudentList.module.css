@@ -1,0 +1,19 @@
+.studentTable {
+  width: 400rem;
+
+  font-size: 12rem;
+  text-align: center;
+
+  overflow: auto;
+  margin: 0 auto ;
+  border-collapse: collapse;
+}
+
+.studentTable tr td{
+    
+  border: 1px solid #ccc;
+}
+
+.studentTable caption {
+    margin: 20rem 0;
+}

@@ -1,0 +1,46 @@
+.cartDetails {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 120rem;
+    width: 100%;
+    max-height: 1200rem;
+
+    border-top-left-radius: 40rem;
+    border-top-right-radius: 40rem;
+
+    background-color: #fff;
+
+    z-index: 3;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100rem;
+    padding: 0 30rem;
+    border-bottom: 1px solid #eee;
+}
+
+.title h3 {
+    font-size: 28rem;
+}
+
+.clear {
+    font-size: 24rem;
+    color: #888;
+    vertical-align: middle;
+}
+
+.clear span {
+    font-size: 24rem;
+    margin-left: 16rem;
+}
+
+.orderList{
+    overflow: auto;
+}

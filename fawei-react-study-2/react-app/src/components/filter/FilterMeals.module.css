@@ -1,0 +1,44 @@
+.container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+
+    height: 120rem;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.inputOuter {
+    position: relative;
+}
+
+.searchText {
+    width: 650rem;
+    height: 70rem;
+    padding-left: 80rem;
+    line-height: 70rem;
+    border-radius: 40rem;
+    vertical-align: middle;
+
+    border: none;
+    outline: none;
+    font-size: 30rem;
+
+    background-color: #f2f2f2;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 20rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    font-size: 40rem;
+    color: #aaa;
+}
