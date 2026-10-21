@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      section[class^="container"] {
+        width: 100%;
+        height: 1280px;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+
+      .container-1 {
+        background-image: url(./1.jpg);
+      }
+
+      .container-2 {
+        background-image: url(./2.jpg);
+      }
+      .container-3 {
+        background-image: url(./3.png);
+      }
+      .container-4 {
+        background-image: url(./4.jpg);
+      }
+
+      p {
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-size: 30px;
+        line-height: 100px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="container-1">
+        <p>恬恬在姥姥家过国庆节</p>
+      </section>
+      <section class="container-2">
+        <p>恬恬在姥姥家过国庆节</p>
+      </section>
+      <section class="container-3">
+        <p>恬恬在姥姥家过国庆节</p>
+      </section>
+      <section class="container-4">
+        <p>恬恬在姥姥家过国庆节</p>
+      </section>
+    </main>
+  </body>
+</html>
