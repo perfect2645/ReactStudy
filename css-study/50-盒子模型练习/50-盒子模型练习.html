@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #eee;
+      }
+
+      main {
+        margin: 50px auto;
+        width: 410px;
+        height: 530px;
+
+        background-color: #fff;
+      }
+
+      .img-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        padding-top: 40px;
+      }
+
+      .content {
+        width: 100%;
+        padding: 20px;
+        padding-top: 40px;
+      }
+
+      .content h2 {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 400;
+      }
+
+      .title {
+        color: #403635;
+      }
+
+      .price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        margin-top: 20px;
+      }
+
+      .discount {
+        color: #ff6700;
+      }
+
+      .original-price {
+        color: #999;
+      }
+
+      .description {
+        font-size: 20px;
+        text-align: center;
+        color: #999;
+        margin-top: 20px;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="img-box">
+        <img src="./50-earphone.png" alt="" />
+      </div>
+      <div class="content">
+        <h2 class="title">Xiaomi Buds 5</h2>
+        <p class="description">
+          舒适无感佩戴 | 高通全链路无损音频,为了文字换行我需要多行文本
+        </p>
+        <div class="price">
+          <h2 class="discount">659元</h2>
+          <h2><del class="original-price">699元</del></h2>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
