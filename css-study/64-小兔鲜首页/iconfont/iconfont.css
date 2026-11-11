@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1753176483843') format('truetype');
+  src: url('iconfont.ttf?t=1794411387342') format('truetype');
 }
 
 .iconfont {
@@ -11,15 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-dianzan:before {
-  content: "\e8c3";
+.icon-shouji:before {
+  content: "\3448";
 }
 
-.icon-shoucang:before {
-  content: "\e8c6";
-}
-
-.icon-yingbi:before {
-  content: "\e853";
+.icon-shugang:before {
+  content: "\e6f2";
 }
 

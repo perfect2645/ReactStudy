@@ -2,3 +2,46 @@
   width: 1240px;
   margin: 0 auto;
 }
+
+.shortcut {
+  height: 52px;
+  background: #333333;
+}
+
+.shortcut-content {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.shortcut-content li {
+  font-size: 14px;
+  letter-spacing: 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.icon-shugang {
+  font-size: 14px;
+  color: #999;
+}
+
+.shortcut-content li .icon-shouji {
+  vertical-align: middle;
+  font-weight: 400;
+  margin-right: 2px;
+}
+
+.shortcut-content li a {
+  color: #fff;
+}
+
+.shortcut-content li:first-child a {
+  color: #5eb69c;
+}
+
+.shortcut-content li a:hover {
+  color: #5eb69c;
+}
