@@ -13,6 +13,20 @@
       "unicode_decimal": 13384
     },
     {
+      "icon_id": "32471",
+      "name": "cart",
+      "font_class": "cart",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    },
+    {
+      "icon_id": "28943321",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e795",
+      "unicode_decimal": 59285
+    },
+    {
       "icon_id": "38121183",
       "name": "竖杠",
       "font_class": "shugang",

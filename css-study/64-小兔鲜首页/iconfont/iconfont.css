@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1794411387342') format('truetype');
+  src: url('iconfont.ttf?t=1794841805728') format('truetype');
 }
 
 .iconfont {
@@ -13,6 +13,14 @@
 
 .icon-shouji:before {
   content: "\3448";
+}
+
+.icon-cart:before {
+  content: "\e6af";
+}
+
+.icon-sousuo:before {
+  content: "\e795";
 }
 
 .icon-shugang:before {
