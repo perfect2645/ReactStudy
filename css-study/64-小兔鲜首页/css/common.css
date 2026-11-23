@@ -210,3 +210,21 @@ footer .service {
   font-weight: 400;
   margin-top: 10px;
 }
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 100px auto 40px;
+  color: #a1a1a1;
+}
+
+.copyright ul {
+  display: flex;
+  gap: 6px;
+}
+
+.copyright ul li a {
+  color: #a1a1a1;
+}
