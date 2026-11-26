@@ -1,0 +1,45 @@
+/* entry */
+
+.entry {
+  height: 500px;
+  background-color: #f5f5f5;
+}
+
+.banner {
+  height: 100%;
+  background: url("../images/首页-自然造物 Made in Nature-淘宝网.png") no-repeat;
+}
+
+.entry .nav {
+  width: 250px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+.entry .nav li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding-left: 29px;
+  padding-right: 10px;
+  color: #fff;
+}
+
+.entry .nav li:hover {
+  background-color: #00be9a;
+}
+
+.entry .nav li p a {
+  font-size: 14px;
+  color: #fff;
+  vertical-align: middle;
+}
+
+.entry .nav li p a:first-child {
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 14px;
+}
+
+/* goods */
